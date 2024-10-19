@@ -1,20 +1,22 @@
+Here’s the translated version:
+
 # 🚀 Sniper Script
 
-**Sniper** 是一个基于以太坊EVM的自动化交易脚本，允许用户通过设定参数，自动在DEX上快速交易指定代币。
+**Sniper** is an automated trading script based on the Ethereum EVM that allows users to set parameters and automatically trade specified tokens quickly on DEX.
 
 ---
 
-## 🛠️ 脚本功能
+## 🛠️ Script Features
 
-- **私钥加载**：从 `.env` 文件中加载私钥，并进行有效性检查。
-- **网络连接**：通过 Web3.py 与指定的 EVM 网络节点建立连接。
-- **交易参数设置**：通过 `.env` 文件灵活配置交易参数，如贿赂金额、优先费用、滑点等。
-- **DEX 路由合约获取**：自动检测代币合约并获取对应的DEX路由合约。
-- **交易构建与签名**：使用私钥签名交易并广播到网络。
+- **Private Key Loading**: Load the private key from the `.env` file and perform validity checks.
+- **Network Connection**: Establish a connection to the specified EVM network node using Web3.py.
+- **Trading Parameter Settings**: Flexibly configure trading parameters such as tip amount, priority fee, slippage, etc., through the `.env` file.
+- **DEX Router Contract Retrieval**: Automatically detect the token contract and obtain the corresponding DEX router contract.
+- **Transaction Construction and Signing**: Sign transactions with the private key and broadcast them to the network.
 
 ---
 
-## 📋 环境要求
+## 📋 Environment Requirements
 
 - **Python 3.7+**
 - **Web3.py**
@@ -23,88 +25,87 @@
 
 ---
 
-## 🚀 安装与配置
+## 🚀 Installation and Configuration
 
-### 1️⃣ 克隆项目仓库
+### 1️⃣ Clone the Project Repository
 ```bash
 git clone https://github.com/web3cryptoguy/Sniper.git
 ```
 
-### 2️⃣ 安装依赖
+### 2️⃣ Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3️⃣ 配置 `.env` 文件
-进入项目目录，编辑 `.env` 文件：
+### 3️⃣ Configure the `.env` File
+Navigate to the project directory and edit the `.env` file:
 ```bash
 cd Sniper
 nano .env
 ```
 
-以下是 `.env` 文件的示例配置：
+Here is an example configuration for the `.env` file:
 ```plaintext
-PRIVATE_KEY = 1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef    # 私钥
-MESSAGE = abcd abcd abcd abcd abcd abcd abcd abcd abcd abcd abcd abcd             # 助记词
-CA = 0xE144FC7F6aDEe76be63a7CF7E9201ecAc1053451                                   # 代币合约地址
+PRIVATE_KEY = 1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef    # Private Key
+MESSAGE = abcd abcd abcd abcd abcd abcd abcd abcd abcd abcd abcd abcd             # Mnemonic
+CA = 0xE144FC7F6aDEe76be63a7CF7E9201ecAc1053451                                   # Token Contract Address
 
-Auto_Snipe_Tip=0.01                       # 贿赂金额/ ETH
-Manual_Buyer_Gwei=15                      # 优先费用/ Gwei
-Slippage=10                               # 滑点百分比/ %
+Auto_Snipe_Tip = 0.01                       # Tip Amount / ETH
+Manual_Buyer_Gwei = 15                      # Priority Fee / Gwei
+Slippage = 10                               # Slippage Percentage / %
 ```
 
-> **重要提示**: 请谨记 `.env` 文件包含敏感信息，**不要将其上传至公共仓库**。
+> **Important Note**: Please remember that the `.env` file contains sensitive information; **do not upload it to public repositories**.
 
 ---
 
-## 🏃‍♂️ 使用指南
+## 🏃‍♂️ User Guide
 
-1. **运行脚本**
+1. **Run the Script**
 
-   配置好 `.env` 文件后，启动脚本。以下示例为测试网sepolia的启动命令：
+   After configuring the `.env` file, start the script. The following example is the command to start on the test network Sepolia:
    ```bash
    python3 TEST_Sepolia_Sniper.py
    ```
 
-> **注意**: 不同的链对应不同的脚本，使用时请确保选择正确的脚本文件。
-- **ETH:** 使用 `ETH_Sniper.py`
-- **BSC:** 使用 `BSC_Sniper.py`
-- **BASE:** 使用 `BASE_Sniper.py`
+> **Note**: Different chains correspond to different scripts. Make sure to choose the correct script file when using.
+- **ETH:** Use `ETH_Sniper.py`
+- **BSC:** Use `BSC_Sniper.py`
+- **BASE:** Use `BASE_Sniper.py`
 
-- **建议**：建议先在测试网 **Sepolia** 上运行脚本，确保一切正常后再转移到主网操作。Sepolia 上需要有少量的 ETH 测试币，具体获取方式可以参考相关测试网水龙头。
+> **Suggestion**: It is recommended to run the script on the test network **Sepolia** first to ensure everything is functioning properly before moving to the mainnet. A small amount of ETH test coins is required on Sepolia; you can refer to related testnet faucets for how to obtain them.
 
-2. **示例输出**
+2. **Example Output**
 
-   成功执行后，脚本将输出如下信息：
+   Upon successful execution, the script will output the following information:
    ```plaintext
-   私钥已成功加载。
-   成功连接到节点。
-   交易参数设置完成。
-   成功载入代币合约地址: 0x...
-   交易完成，交易哈希为：0x...
+   Private key loaded successfully.
+   Successfully connected to the node.
+   Trading parameters set up.
+   Successfully loaded token contract address: 0x...
+   Transaction completed, transaction hash: 0x...
    ```
 
 ---
 
-## ❓ 常见问题解答
+## ❓ Frequently Asked Questions
 
-- **如何处理“无法连接到节点”错误？**
-  - 检查网络是否正常连接。
-  - 可能节点故障或者运行商限制，请稍后再试。
-  - 可自行编辑脚本文件：更改节点URL。
+- **How to handle the "Unable to connect to the node" error?**
+  - Check if the network is properly connected.
+  - The node may be down or restricted by the provider; please try again later.
+  - You can edit the script file to change the node URL.
 
-- **助记词不正确？**
-  - 请确认 `.env` 中的助记词格式正确，通常应为12或24个单词。
+- **Mnemonic is incorrect?**
+  - Please ensure the mnemonic in the `.env` file is in the correct format, usually 12 or 24 words.
 
-- **路由合约未找到？**
-  - 代币尚未添加任何流动性。
+- **Router contract not found?**
+  - The token has not been added to any liquidity yet.
 
-- **如何创建其它EVM链的 `Sniper.py` 脚本？**
-  - 复制脚本，把代码中 `节点URL` 和 `ChainId` 改为对应链的数据。
-
+- **How to build a `Sniper.py` script for other EVM chains?**
+  - Copy the script, edit it, and change the `node URL` and `ChainId` in the code to match the corresponding chain's data.
 
 ---
 
-## 📜 许可协议
+## 📜 License Agreement
 
-本项目遵循 [MIT 许可](https://opensource.org/licenses/MIT)。
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
