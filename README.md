@@ -54,7 +54,7 @@ Auto_Snipe_Tip = 0.01                       # Tip Amount / ETH
 Manual_Buyer_Gwei = 15                      # Priority Fee / Gwei
 Slippage = 10                               # Slippage Percentage / %
 ```
-
+`CTRL + O` to save, press `Enter` to confirm and exit.
 > **Important Note**: Please remember that the `.env` file contains sensitive information; **do not upload it to public repositories**.
 
 ---
