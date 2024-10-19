@@ -10,7 +10,7 @@ load_dotenv()
 private_key = os.getenv("PRIVATE_KEY")
 message = os.getenv("MNEMONIC")
 
-# Check the mnemonic
+# Check private key
 mnemonic_words = message.split()
 if len(mnemonic_words) not in [12, 24]:
     print("Error: The mnemonic is incorrect, please check!")

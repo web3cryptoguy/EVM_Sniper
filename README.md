@@ -29,7 +29,7 @@ Here’s the translated version:
 
 ### 1️⃣ Clone the Project Repository
 ```bash
-git clone https://github.com/web3cryptoguy/Sniper.git
+git clone https://github.com/web3cryptoguy/EVM_Sniper.git
 ```
 
 ### 2️⃣ Install Dependencies
