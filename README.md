@@ -2,7 +2,7 @@ Here’s the translated version:
 
 # 🚀 Sniper Script
 
-**Sniper** is an automated trading script based on the Ethereum EVM that allows users to set parameters and automatically trade specified tokens quickly on DEX.
+**Sniper** is an automated trading script based on the Ethereum EVM, allowing users to set parameters to automatically match with DEX and quickly trade specified tokens.
 
 ---
 
