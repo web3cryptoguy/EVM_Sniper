@@ -40,7 +40,7 @@ pip install -r requirements.txt
 ### 3️⃣ Configure the `.env` File
 Navigate to the project directory and edit the `.env` file:
 ```bash
-cd Sniper
+cd EVM_Sniper
 nano .env
 ```
 
