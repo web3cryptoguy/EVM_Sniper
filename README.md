@@ -47,7 +47,7 @@ nano .env
 Here is an example configuration for the `.env` file:
 ```plaintext
 PRIVATE_KEY = 1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef    # Private Key
-MESSAGE = abcd abcd abcd abcd abcd abcd abcd abcd abcd abcd abcd abcd             # Mnemonic
+MNEMONIC = abcd abcd abcd abcd abcd abcd abcd abcd abcd abcd abcd abcd             # Mnemonic
 CA = 0xE144FC7F6aDEe76be63a7CF7E9201ecAc1053451                                   # Token Contract Address
 
 Auto_Snipe_Tip = 0.01                       # Tip Amount / ETH
