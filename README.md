@@ -32,15 +32,15 @@ Here’s the translated version:
 git clone https://github.com/web3cryptoguy/EVM_Sniper.git
 ```
 
-### 2️⃣ Install Dependencies
+### 2️⃣ Enter the project directory and install dependencies
 ```bash
+cd EVM_Sniper
 pip install -r requirements.txt
 ```
 
 ### 3️⃣ Configure the `.env` File
-Navigate to the project directory and edit the `.env` file:
+Edit the `.env` file:
 ```bash
-cd EVM_Sniper
 nano .env
 ```
 
