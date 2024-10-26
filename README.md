@@ -52,7 +52,7 @@ Slippage = 10                               # Slippage percentage/ %
 
 Press `CTRL + O` to save, `Enter` to confirm, then `CTRL + X` to exit.
 
-＞ **Important Note**: The `.env` file contains sensitive information, so do not upload it to public repositories.
+> **Important Note**: The `.env` file contains sensitive information, so do not upload it to public repositories.
 
 ## 🏃‍♂️ Usage Guide
 
@@ -64,13 +64,13 @@ After configuring the `.env` file, start the script. Here’s an example command
 python3 TEST_Sepolia_Sniper.py
 ```
 
-**Note**: Different chains correspond to different script files. Ensure you select the correct script file when using it:
+> **Note**: Different chains correspond to different script files. Ensure you select the correct script file when using it:
 
 - **ETH**: Use `ETH_Sniper.py`
 - **BSC**: Use `BSC_Sniper.py`
 - **BASE**: Use `BASE_Sniper.py`
 
-**Recommendation**: It is advised to first run the script on the Sepolia test network to ensure everything is working before moving to the mainnet. You will need a small amount of ETH test tokens on Sepolia; check relevant testnet faucets for details.
+> **Recommendation**: It is advised to first run the script on the Sepolia test network to ensure everything is working before moving to the mainnet. You will need a small amount of ETH test tokens on Sepolia; check relevant testnet faucets for details.
 
 ### 2️⃣ Example Output
 
