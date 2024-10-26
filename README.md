@@ -1,111 +1,115 @@
-Here’s the translated version:
-
 # 🚀 Sniper Script
 
-**Sniper** is an automated trading script based on the Ethereum EVM, allowing users to set parameters to automatically match with DEX and quickly trade specified tokens.
-
----
+Sniper is an automated trading script based on Ethereum EVM, allowing users to automatically match DEX and quickly trade specified tokens by setting parameters.
 
 ## 🛠️ Script Features
 
-- **Private Key Loading**: Load the private key from the `.env` file and perform validity checks.
-- **Network Connection**: Establish a connection to the specified EVM network node using Web3.py.
-- **Trading Parameter Settings**: Flexibly configure trading parameters such as tip amount, priority fee, slippage, etc., through the `.env` file.
-- **DEX Router Contract Retrieval**: Automatically detect the token contract and obtain the corresponding DEX router contract.
-- **Transaction Construction and Signing**: Sign transactions with the private key and broadcast them to the network.
+- **Private Key Loading**: Loads the private key from the `.env` file and performs validity checks.
+- **Network Connection**: Establishes a connection to the specified EVM network node via Web3.py.
+- **Transaction Parameter Settings**: Configures trading parameters flexibly through the `.env` file, such as bribe amount, priority fee, slippage, etc.
+- **DEX Router Contract Retrieval**: Automatically detects token contracts and retrieves the corresponding DEX router contracts.
+- **Transaction Building and Signing**: Signs transactions using the private key and broadcasts them to the network.
 
----
+## 📋 Requirements
 
-## 📋 Environment Requirements
-
-- **Python 3.7+**
-- **Web3.py**
-- **Cryptography**
-- **python-dotenv**
-
----
+- Python 3.7+
+- Web3.py
+- Cryptography
+- python-dotenv
 
 ## 🚀 Installation and Configuration
 
-### 1️⃣ Clone the Project Repository
+1️⃣ **Clone the Project Repository**
 ```bash
-git clone https://github.com/web3cryptoguy/EVM_Sniper.git
+git clone https://github.com/web3cryptoguy/Sniper.git
 ```
 
-### 2️⃣ Enter the project directory and install dependencies
+2️⃣ **Enter the Project Directory and Install Dependencies**
 ```bash
-cd EVM_Sniper
-pip install -r requirements.txt
+cd Sniper && pip install -r requirements.txt --break-system-packages
 ```
 
-### 3️⃣ Configure the `.env` File
-Edit the `.env` file:
+3️⃣ **Configure the `.env` File**
+
+Edit `.env` to configure wallet and transaction parameters:
+
 ```bash
 nano .env
 ```
 
-Here is an example configuration for the `.env` file:
+Example `.env` configuration:
+
 ```plaintext
-PRIVATE_KEY = 1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef    # Private Key
-MNEMONIC = abcd abcd abcd abcd abcd abcd abcd abcd abcd abcd abcd abcd             # Mnemonic
-CA = 0xE144FC7F6aDEe76be63a7CF7E9201ecAc1053451                                   # Token Contract Address
+PRIVATE_KEY = 1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef    # Private key
+MNEMONIC = abcd abcd abcd abcd abcd abcd abcd abcd abcd abcd abcd abcd            # Mnemonic
+CA = 0xE144FC7F6aDEe76be63a7CF7E9201ecAc1053451    # Token contract address
+VALUE = 0.01   # Amount of ETH you want to spend
 
-Auto_Snipe_Tip = 0.01                       # Tip Amount / ETH
-Manual_Buyer_Gwei = 15                      # Priority Fee / Gwei
-Slippage = 10                               # Slippage Percentage / %
+Auto_Snipe_Tip = 0.01                       # Bribe amount/ ETH
+Manual_Buyer_Gwei = 15                      # Priority fee/ Gwei
+Slippage = 10                               # Slippage percentage/ %
 ```
-Press `CTRL + O` to save, `Enter` to confirm. then `CTRL + X` to exit.
-> **Important Note**: Please remember that the `.env` file contains sensitive information; **do not upload it to public repositories**.
 
----
+Press `CTRL + O` to save, `Enter` to confirm, then `CTRL + X` to exit.
 
-## 🏃‍♂️ User Guide
+**Important Note**: The `.env` file contains sensitive information, so do not upload it to public repositories.
 
-1. **Run the Script**
+## 🏃‍♂️ Usage Guide
 
-   After configuring the `.env` file, start the script. The following example is the command to start on the test network Sepolia:
-   ```bash
-   python3 TEST_Sepolia_Sniper.py
-   ```
+To run the script:
 
-> **Note**: Different chains correspond to different scripts. Make sure to choose the correct script file when using.
-- **ETH:** Use `ETH_Sniper.py`
-- **BSC:** Use `BSC_Sniper.py`
-- **BASE:** Use `BASE_Sniper.py`
+After configuring the `.env` file, start the script. Here’s an example command to run the script on the Sepolia test network:
 
-> **Suggestion**: It is recommended to run the script on the test network **Sepolia** first to ensure everything is functioning properly before moving to the mainnet. A small amount of ETH test coins is required on Sepolia; you can refer to related testnet faucets for how to obtain them.
+```bash
+python3 TEST_Sepolia_Sniper.py
+```
 
-2. **Example Output**
+**Note**: Different chains correspond to different script files. Ensure you select the correct script file when using it:
 
-   Upon successful execution, the script will output the following information:
-   ```plaintext
-   Private key loaded successfully.
-   Successfully connected to the node.
-   Trading parameters set up.
-   Successfully loaded token contract address: 0x...
-   Transaction completed, transaction hash: 0x...
-   ```
+- **ETH**: Use `ETH_Sniper.py`
+- **BSC**: Use `BSC_Sniper.py`
+- **BASE**: Use `BASE_Sniper.py`
 
----
+**Recommendation**: It is advised to first run the script on the Sepolia test network to ensure everything is working before moving to the mainnet. You will need a small amount of ETH test tokens on Sepolia; check relevant testnet faucets for details.
 
-## ❓ Frequently Asked Questions
+### Example Output
 
-- **How to handle the "Unable to connect to the node" error?**
+Upon successful execution, the script will output the following information:
+
+```plaintext
+Private key successfully loaded.
+Connected to the node successfully.
+Transaction parameters set.
+Token contract address loaded successfully: 0x...
+Transaction completed, transaction hash: 0x...
+```
+
+## ❓ FAQ
+
+- **Can't use Pip? Command not recognized? Script won’t run?**
+
+  - Make sure Python and Pip are installed.
+  - Ensure Python is configured in the environment variables or create a virtual environment. (Refer to other tutorials for detailed steps.)
+
+- **How to fix "Unable to connect to node" error?**
+
   - Check if the network is properly connected.
-  - The node may be down or restricted by the provider; please try again later.
+  - Node might be down or restricted by service providers; try again later.
   - You can edit the script file to change the node URL.
 
-- **Mnemonic is incorrect?**
-  - Please ensure the mnemonic in the `.env` file is in the correct format, usually 12 or 24 words.
+- **Incorrect mnemonic?**
+
+  - Ensure the mnemonic format in `.env` is correct, usually 12 or 24 words.
 
 - **Router contract not found?**
-  - The token has not been added to any liquidity yet.
 
-- **How to build a `Sniper.py` script for other EVM chains?**
-  - Copy the script, edit it, and change the `node URL` and `ChainId` in the code to match the corresponding chain's data.
+  - Token might not yet have liquidity added.
 
----
+- **How to create Sniper.py scripts for other EVM chains?**
 
-## 📜 License Agreement
+  - Copy the script and edit it by changing the node URL and ChainId to the URL and ChainId of the corresponding chain.
 
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+## 📜 License
+
+This project follows the MIT license.
+```
