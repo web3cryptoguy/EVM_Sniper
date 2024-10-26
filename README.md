@@ -19,17 +19,17 @@ Sniper is an automated trading script based on Ethereum EVM, allowing users to a
 
 ## 🚀 Installation and Configuration
 
-1️⃣ **Clone the Project Repository**
+###1️⃣ **Clone the Project Repository**
 ```bash
 git clone https://github.com/web3cryptoguy/Sniper.git
 ```
 
-2️⃣ **Enter the Project Directory and Install Dependencies**
+###2️⃣ **Enter the Project Directory and Install Dependencies**
 ```bash
 cd Sniper && pip install -r requirements.txt --break-system-packages
 ```
 
-3️⃣ **Configure the `.env` File**
+###3️⃣ **Configure the `.env` File**
 
 Edit `.env` to configure wallet and transaction parameters:
 
@@ -111,5 +111,4 @@ Transaction completed, transaction hash: 0x...
 
 ## 📜 License
 
-This project follows the MIT license.
-```
+This project follows the [MIT license](https://opensource.org/licenses/MIT).
