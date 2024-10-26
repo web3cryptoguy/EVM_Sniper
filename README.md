@@ -56,7 +56,7 @@ Press `CTRL + O` to save, `Enter` to confirm, then `CTRL + X` to exit.
 
 ## 🏃‍♂️ Usage Guide
 
-To run the script:
+### 1️⃣ To run the script:
 
 After configuring the `.env` file, start the script. Here’s an example command to run the script on the Sepolia test network:
 
@@ -72,7 +72,7 @@ python3 TEST_Sepolia_Sniper.py
 
 **Recommendation**: It is advised to first run the script on the Sepolia test network to ensure everything is working before moving to the mainnet. You will need a small amount of ETH test tokens on Sepolia; check relevant testnet faucets for details.
 
-### Example Output
+### 2️⃣ Example Output
 
 Upon successful execution, the script will output the following information:
 
