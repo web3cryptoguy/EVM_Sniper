@@ -52,7 +52,7 @@ Slippage = 10                               # Slippage percentage/ %
 
 Press `CTRL + O` to save, `Enter` to confirm, then `CTRL + X` to exit.
 
-**Important Note**: The `.env` file contains sensitive information, so do not upload it to public repositories.
+＞ **Important Note**: The `.env` file contains sensitive information, so do not upload it to public repositories.
 
 ## 🏃‍♂️ Usage Guide
 
@@ -86,26 +86,26 @@ Transaction completed, transaction hash: 0x...
 
 ## ❓ FAQ
 
-- **Can't use Pip? Command not recognized? Script won’t run?**
+### ➡️ **Can't use Pip? Command not recognized? Script won’t run?**
 
   - Make sure Python and Pip are installed.
   - Ensure Python is configured in the environment variables or create a virtual environment. (Refer to other tutorials for detailed steps.)
 
-- **How to fix "Unable to connect to node" error?**
+### ➡️ **How to fix "Unable to connect to node" error?**
 
   - Check if the network is properly connected.
   - Node might be down or restricted by service providers; try again later.
   - You can edit the script file to change the node URL.
 
-- **Incorrect mnemonic?**
+### ➡️ **Incorrect mnemonic?**
 
   - Ensure the mnemonic format in `.env` is correct, usually 12 or 24 words.
 
-- **Router contract not found?**
+### ➡️ **Router contract not found?**
 
   - Token might not yet have liquidity added.
 
-- **How to create Sniper.py scripts for other EVM chains?**
+### ➡️ **How to create Sniper.py scripts for other EVM chains?**
 
   - Copy the script and edit it by changing the node URL and ChainId to the URL and ChainId of the corresponding chain.
 
